@@ -63,13 +63,15 @@ class Board:
         self.board[i]['text'] = self.current[self.player]
         self.board[i]['activebackground'] = RED
 
-        if self.moves == 9:
-            self.gameover = True
-            for box in self.board:
-                box['background'] = YELLOW
+        
 
         if self.condition() is not None:
             self.gameover = True
+            
+        elif self.moves == 9:
+            self.gameover = True
+            for box in self.board:
+                box['background'] = YELLOW
 
         self.player = not self.player
         
